@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Three Bridges Realty | Yonkers, Bronx & Queens</title>
+<meta name="description" content="Three Bridges Realty helps families buy, sell and rent homes in Yonkers, the Bronx and Queens in English, Spanish and Tibetan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Noto+Serif+Tibetan:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #F4F7F6;
+  --surface: #FFFFFF;
+  --ink: #13233A;
+  --muted: #53657A;
+  --line: #D5DEE3;
+  --jade: #0F6B5C;
+  --jade-soft: #DCEFEA;
+  --marigold: #F2B705;
+  --red: #C8102E;
+  --blue: #2B59C3;
+  --on-jade: #FFFFFF;
+  --font: "Bricolage Grotesque", "Noto Serif Tibetan", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --tib: "Noto Serif Tibetan", "Microsoft Himalaya", "Kailasa", serif;
+  --wrap: 1180px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1A2B; --surface: #16263B; --ink: #EAF0F5; --muted: #A5B4C4;
+    --line: #2A3D55; --jade: #3FB39C; --jade-soft: #173A3A; --on-jade: #0E1A2B;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1A2B; --surface: #16263B; --ink: #EAF0F5; --muted: #A5B4C4;
+  --line: #2A3D55; --jade: #3FB39C; --jade-soft: #173A3A; --on-jade: #0E1A2B;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 80px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font); font-size: 1.0625rem; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+:lang(bo), .tib { font-family: var(--tib); line-height: 1.95; }
+img, svg { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(var(--wrap), 100% - 2.5rem); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bg); padding: .6rem 1rem; z-index: 100; }
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* Header */
+header.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.bar { display: flex; align-items: center; gap: 1.25rem; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; margin-right: auto; }
+.brand svg { width: 42px; height: 24px; flex: none; }
+nav.main ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
+nav.main a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: .98rem; }
+nav.main a:hover { color: var(--ink); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); }
+.lang button {
+  font: inherit; font-size: .88rem; font-weight: 600; border: 0; background: none; color: var(--muted);
+  padding: .3rem .7rem; border-radius: 999px; cursor: pointer; line-height: 1.4;
+}
+.lang button[lang="bo"] { font-family: var(--tib); font-size: .95rem; line-height: 1.2; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.menu-btn { display: none; font: inherit; font-weight: 600; background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: .4rem .7rem; cursor: pointer; }
+
+/* Prayer-flag / papel picado bunting */
+.bunting { display: block; width: 100%; height: 46px; }
+
+/* Hero */
+.hero { padding: 1rem 0 4.5rem; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; padding-top: 2.5rem; }
+.greet-wrap { min-height: 2.4em; font-size: clamp(2.6rem, 6.4vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -.03em; margin: 0 0 1.4rem; }
+#greet { display: inline-block; transition: opacity .45s ease, transform .45s ease; }
+#greet.out { opacity: 0; transform: translateY(.25em); }
+#greet:lang(bo) { font-size: .72em; line-height: 1.45; letter-spacing: 0; font-weight: 600; }
+.greet-note { display: block; font-size: .95rem; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-top: .6rem; }
+.hero p.lead { font-size: clamp(1.1rem, 1.6vw, 1.3rem); max-width: 34em; color: var(--muted); margin: 0 0 2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem; font: inherit; font-weight: 600; text-decoration: none;
+  padding: .85rem 1.35rem; border-radius: 10px; border: 2px solid var(--jade); cursor: pointer; line-height: 1.3;
+}
+.btn.primary { background: var(--jade); color: var(--on-jade); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); }
+.spoken { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-top: 2.2rem; font-size: .95rem; color: var(--muted); }
+.spoken span { display: inline-flex; align-items: center; gap: .45rem; }
+.spoken i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.bridges { width: 100%; height: auto; }
+.bridges text { font-family: var(--font); font-weight: 600; fill: var(--ink); font-size: 15px; }
+.bridges .water { fill: var(--jade-soft); }
+.bridges .arch { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+.bridges .cable { stroke: var(--muted); stroke-width: 1.2; }
+.bridges .deck { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
+
+/* Sections */
+section.block { padding: 5rem 0; }
+section.alt { background: var(--surface); border-block: 1px solid var(--line); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.025em; margin: 0 0 1rem; font-weight: 800; }
+h2:lang(bo), [lang="bo"] h2 { letter-spacing: 0; line-height: 1.5; font-weight: 600; }
+h3 { font-size: 1.3rem; line-height: 1.25; margin: 0 0 .5rem; font-weight: 700; }
+.intro { max-width: 40em; color: var(--muted); margin: 0 0 3rem; font-size: 1.12rem; }
+
+/* Areas */
+.areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.area { border-top: 6px solid var(--c); padding-top: 1.4rem; }
+.area h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -.02em; font-weight: 800; }
+.area p { color: var(--muted); margin: 0 0 1rem; }
+.area ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.area li { font-size: .9rem; font-weight: 600; background: var(--bg); border: 1px solid var(--line); padding: .2rem .65rem; border-radius: 999px; }
+.alt .area li { background: var(--bg); }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 4rem; }
+.svc { padding: 1.6rem 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 44px 1fr; gap: 1rem; }
+.svc svg { width: 36px; height: 36px; stroke: var(--jade); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.svc p { margin: 0; color: var(--muted); }
+.svc.feature { grid-column: 1 / -1; background: var(--jade); color: var(--on-jade); border: 0; border-radius: 16px; padding: 2rem; margin-top: 1.5rem; grid-template-columns: 1fr auto; align-items: center; }
+.svc.feature p { color: inherit; opacity: .92; max-width: 44em; }
+.svc.feature .langs { font-size: 1.4rem; font-weight: 800; text-align: right; line-height: 1.5; }
+.svc.feature .langs span { display: block; }
+
+/* Steps */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; counter-reset: step; }
+.steps li { counter-increment: step; position: relative; padding-top: 3.6rem; }
+.steps li::before {
+  content: counter(step); position: absolute; top: 0; left: 0; width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 800; background: var(--marigold); color: #13233A; font-family: var(--font);
+}
+.steps li:not(:last-child)::after { content: ""; position: absolute; top: 1.3rem; left: 3.2rem; right: -1.4rem; height: 2px; background: var(--line); }
+.steps p { color: var(--muted); margin: 0; }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+.person { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; align-items: start; }
+.mono { width: 120px; height: 140px; border-radius: 60px 60px 12px 12px; display: grid; place-items: center; font-size: 2.4rem; font-weight: 800; color: #fff; }
+.role { color: var(--jade); font-weight: 600; font-size: .95rem; margin: 0 0 .6rem; }
+.person p { margin: 0 0 .6rem; color: var(--muted); }
+.person .speaks { font-size: .92rem; color: var(--ink); }
+
+/* Testimonials */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+blockquote { margin: 0; padding: 1.6rem 1.6rem 1.4rem; background: var(--bg); border-radius: 14px; border-left: 5px solid var(--c); }
+blockquote p { margin: 0 0 1rem; font-size: 1.1rem; }
+blockquote p.tib { font-size: 1.15rem; }
+blockquote .gloss { font-size: .95rem; color: var(--muted); font-style: italic; }
+blockquote footer { font-weight: 600; font-size: .92rem; }
+blockquote footer span { color: var(--muted); font-weight: 400; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 4rem; align-items: start; }
+.info dl { margin: 2rem 0 0; display: grid; gap: 1.2rem; }
+.info dt { font-weight: 600; font-size: .9rem; color: var(--muted); }
+.info dd { margin: 0; font-size: 1.15rem; font-weight: 600; }
+.info dd a { text-decoration: none; border-bottom: 2px solid var(--marigold); }
+form.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 2rem; display: grid; gap: 1.1rem; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+label { display: grid; gap: .35rem; font-weight: 600; font-size: .95rem; }
+input, select, textarea {
+  font: inherit; font-weight: 400; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 8px; padding: .7rem .8rem; width: 100%;
+}
+textarea { min-height: 110px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--jade); outline-offset: 1px; }
+.err { color: var(--red); font-size: .88rem; font-weight: 600; min-height: 0; }
+.ok { background: var(--jade-soft); border-radius: 10px; padding: 1rem 1.2rem; font-weight: 600; }
+.demo { font-size: .85rem; color: var(--muted); margin: 0; }
+
+/* Footer */
+footer.site { padding: 3rem 0 2.5rem; border-top: 1px solid var(--line); font-size: .92rem; color: var(--muted); }
+.foot { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; justify-content: space-between; }
+.foot p { margin: 0 0 .5rem; max-width: 46em; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.eho { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; color: var(--ink); }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .bridges-wrap { max-width: 520px; }
+  .areas, .quotes { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .steps li::after { display: none; }
+  .team, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 820px) {
+  .menu-btn { display: inline-block; }
+  nav.main { position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); display: none; }
+  nav.main.open { display: block; }
+  nav.main ul { flex-direction: column; gap: 0; padding: .5rem 1.25rem 1rem; }
+  nav.main a { display: block; padding: .7rem 0; font-size: 1.05rem; color: var(--ink); }
+}
+@media (max-width: 560px) {
+  .brand span { font-size: 1rem; }
+  .lang button { padding: .3rem .5rem; }
+  .steps { grid-template-columns: 1fr; }
+  .person { grid-template-columns: 1fr; }
+  .row2 { grid-template-columns: 1fr; }
+  .svc.feature { grid-template-columns: 1fr; }
+  .svc.feature .langs { text-align: left; }
+  form.card { padding: 1.3rem; }
+  section.block { padding: 3.5rem 0; }
+}
+@media (prefers-reduced-motion: reduce) { #greet { transition: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Three Bridges Realty, home">
+      <svg viewBox="0 0 84 48" aria-hidden="true">
+        <path d="M4 40 Q14 14 24 40" fill="none" stroke="#0F6B5C" stroke-width="5" stroke-linecap="round"/>
+        <path d="M30 40 Q42 8 54 40" fill="none" stroke="#F2B705" stroke-width="5" stroke-linecap="round"/>
+        <path d="M60 40 Q70 14 80 40" fill="none" stroke="#C8102E" stroke-width="5" stroke-linecap="round"/>
+        <line x1="2" y1="40" x2="82" y2="40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span>Three Bridges Realty</span>
+    </a>
+    <nav class="main" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#areas" data-i18n="nav.areas">Areas</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#process" data-i18n="nav.process">How it works</a></li>
+        <li><a href="#team" data-i18n="nav.team">About us</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+      <button type="button" data-lang="bo" lang="bo" aria-pressed="false">བོད</button>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" data-i18n="menu">Menu</button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <svg class="bunting" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true" id="bunting"></svg>
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="greet-wrap" aria-live="polite">
+        <span id="greet" lang="en">Welcome home.</span>
+        <span class="greet-note" data-i18n="hero.note">We speak your language, from Yonkers to Queens.</span>
+      </h1>
+      <p class="lead" data-i18n="hero.lead">Three Bridges Realty helps families buy, sell and rent homes in Yonkers, the Bronx and Queens, in English, Spanish and Tibetan.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact" data-i18n="hero.cta">Book a free consultation</a>
+      </div>
+      <div class="spoken">
+        <span><i style="background:var(--blue)"></i>English</span>
+        <span><i style="background:var(--red)"></i>Se habla español</span>
+        <span class="tib" lang="bo"><i style="background:var(--marigold)"></i>བོད་སྐད་ཤོད་ཀྱི་ཡོད།</span>
+      </div>
+    </div>
+    <div class="bridges-wrap">
+      <svg class="bridges" viewBox="0 0 480 300" role="img" aria-labelledby="brtitle">
+        <title id="brtitle">Three bridges labeled Yonkers, Bronx and Queens</title>
+        <rect class="water" x="0" y="210" width="480" height="90" rx="14"/>
+        <path d="M30 250 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" fill="none" stroke="var(--jade)" stroke-width="2" opacity=".5"/>
+        <g>
+          <path class="arch" d="M20 200 Q85 60 150 200" style="stroke:#0F6B5C"/>
+          <line class="cable" x1="52" y1="146" x2="52" y2="200"/><line class="cable" x1="85" y1="130" x2="85" y2="200"/><line class="cable" x1="118" y1="146" x2="118" y2="200"/>
+          <text x="85" y="232" text-anchor="middle">Yonkers</text>
+        </g>
+        <g>
+          <path class="arch" d="M165 200 Q240 20 315 200" style="stroke:#F2B705"/>
+          <line class="cable" x1="202" y1="124" x2="202" y2="200"/><line class="cable" x1="240" y1="110" x2="240" y2="200"/><line class="cable" x1="278" y1="124" x2="278" y2="200"/>
+          <text x="240" y="232" text-anchor="middle">Bronx</text>
+        </g>
+        <g>
+          <path class="arch" d="M330 200 Q395 60 460 200" style="stroke:#C8102E"/>
+          <line class="cable" x1="362" y1="146" x2="362" y2="200"/><line class="cable" x1="395" y1="130" x2="395" y2="200"/><line class="cable" x1="428" y1="146" x2="428" y2="200"/>
+          <text x="395" y="232" text-anchor="middle">Queens</text>
+        </g>
+        <line class="deck" x1="10" y1="200" x2="470" y2="200"/>
+        <g fill="var(--ink)">
+          <rect x="60" y="176" width="18" height="24" rx="2"/><path d="M57 178 l12 -10 l12 10z"/>
+          <rect x="228" y="168" width="26" height="32" rx="2"/><rect x="232" y="174" width="6" height="6" fill="var(--bg)"/><rect x="244" y="174" width="6" height="6" fill="var(--bg)"/>
+          <rect x="384" y="172" width="22" height="28" rx="2"/><path d="M381 174 l14 -12 l14 12z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="areas">
+  <div class="wrap">
+    <h2 data-i18n="areas.title">Where we work</h2>
+    <p class="intro" data-i18n="areas.lead">We live here too. We know which blocks flood, which co-op boards are strict, and where to find the best momos and empanadas.</p>
+    <div class="areas">
+      <article class="area" style="--c:#0F6B5C">
+        <h3>Yonkers</h3>
+        <p data-i18n="areas.yonkers">Two-family homes, co-ops near Metro-North, and more space for your money just north of the city line.</p>
+        <ul><li>Getty Square</li><li>Ludlow</li><li>Park Hill</li><li>Crestwood</li><li>Nodine Hill</li></ul>
+      </article>
+      <article class="area" style="--c:#F2B705">
+        <h3>The Bronx</h3>
+        <p data-i18n="areas.bronx">Rowhouses, condos and rent-stabilized apartments, from Kingsbridge to Pelham Bay.</p>
+        <ul><li>Kingsbridge</li><li>Parkchester</li><li>Pelham Bay</li><li>Morris Park</li><li>Riverdale</li></ul>
+      </article>
+      <article class="area" style="--c:#C8102E">
+        <h3>Queens</h3>
+        <p data-i18n="areas.queens">Co-ops, multi-family homes and some of the most diverse streets in the world.</p>
+        <ul><li>Jackson Heights</li><li>Woodside</li><li>Elmhurst</li><li>Corona</li><li>Sunnyside</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <h2 data-i18n="svc.title">How we can help</h2>
+    <p class="intro" data-i18n="svc.lead">Whether it's your first apartment or your third building, we handle the details and explain every step.</p>
+    <div class="services">
+      <div class="svc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+        <div><h3 data-i18n="svc.buy.t">Buying your first home</h3><p data-i18n="svc.buy.d">We guide you through mortgage pre-approval and down payment help like SONYMA and FHA loans, and explain every document.</p></div>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 13h6"/><path d="M12 10v6"/></svg>
+        <div><h3 data-i18n="svc.sell.t">Selling your home</h3><p data-i18n="svc.sell.d">A price based on real sales on your block, professional photos, and a listing shared with buyers in three languages.</p></div>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/><path d="M17 6l2 2"/><path d="M15 8l2 2"/></svg>
+        <div><h3 data-i18n="svc.rent.t">Renting</h3><p data-i18n="svc.rent.d">Apartments for tenants and qualified tenants for landlords, with leases, deposits and fees explained clearly.</p></div>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="8" height="16"/><rect x="13" y="8" width="8" height="12"/><path d="M6 8h2M6 12h2M6 16h2M16 12h2M16 16h2"/></svg>
+        <div><h3 data-i18n="svc.multi.t">Multi-family and investment</h3><p data-i18n="svc.multi.d">Two- and three-family homes where rent from the other units helps pay the mortgage.</p></div>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/></svg>
+        <div><h3 data-i18n="svc.coop.t">Co-op board packages</h3><p data-i18n="svc.coop.d">We help you gather the financial records and reference letters co-op boards ask for, and prepare you for the interview.</p></div>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><h3 data-i18n="svc.eve.t">Evening and weekend showings</h3><p data-i18n="svc.eve.d">We work around your shifts, including Saturdays, Sundays and weeknights after 7 pm.</p></div>
+      </div>
+      <div class="svc feature">
+        <div><h3 data-i18n="svc.lang.t">Every step in your language</h3><p data-i18n="svc.lang.d">Contracts, inspections, mortgage calls and closings, explained in English, Spanish or Tibetan so nothing gets lost in translation.</p></div>
+        <div class="langs" aria-hidden="true"><span>English</span><span>Español</span><span class="tib">བོད་སྐད།</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="process">
+  <div class="wrap">
+    <h2 data-i18n="proc.title">How it works</h2>
+    <p class="intro" data-i18n="proc.lead">Buying a home takes about 60 to 90 days in New York. Here's what that looks like with us.</p>
+    <ol class="steps">
+      <li><h3 data-i18n="proc.1.t">Talk with us</h3><p data-i18n="proc.1.d">A free, no-pressure conversation about your budget, family and neighborhood.</p></li>
+      <li><h3 data-i18n="proc.2.t">Get your finances ready</h3><p data-i18n="proc.2.d">We connect you with trusted lenders and assistance programs.</p></li>
+      <li><h3 data-i18n="proc.3.t">Find the right home</h3><p data-i18n="proc.3.d">We tour homes with you and negotiate the best price.</p></li>
+      <li><h3 data-i18n="proc.4.t">Close with confidence</h3><p data-i18n="proc.4.d">We stay with you through inspection, contract and closing day.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="team">
+  <div class="wrap">
+    <h2 data-i18n="team.title">Your neighbors in real estate</h2>
+    <p class="intro" data-i18n="team.lead">A small, family-run brokerage founded in 2012. You'll work directly with us, not a call center.</p>
+    <div class="team">
+      <article class="person">
+        <div class="mono" style="background:#0F6B5C" aria-hidden="true">MV</div>
+        <div>
+          <h3>Marisol Vega</h3>
+          <p class="role" data-i18n="team.mv.role">Founder and Licensed Real Estate Broker</p>
+          <p data-i18n="team.mv.bio">Raised in Parkchester by Dominican parents, Marisol has helped more than 400 families buy and sell homes across the Bronx and Westchester.</p>
+          <p class="speaks">English, Español</p>
+        </div>
+      </article>
+      <article class="person">
+        <div class="mono" style="background:#C8102E" aria-hidden="true">TN</div>
+        <div>
+          <h3>Tenzin Norbu</h3>
+          <p class="role" data-i18n="team.tn.role">Licensed Real Estate Salesperson</p>
+          <p data-i18n="team.tn.bio">Born in Dharamsala and a Jackson Heights resident since 2009, Tenzin specializes in Queens co-ops and first-time buyers.</p>
+          <p class="speaks">English, <span class="tib" lang="bo">བོད་སྐད།</span>, नेपाली</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="stories">
+  <div class="wrap">
+    <h2 data-i18n="q.title">What families say</h2>
+    <p class="intro" data-i18n="q.lead">Reviews from clients, in the language they wrote them.</p>
+    <div class="quotes">
+      <blockquote style="--c:#C8102E">
+        <p lang="es">“Marisol nos explicó todo en español y nunca nos sentimos perdidos. Hoy tenemos nuestra casa en Yonkers.”</p>
+        <p class="gloss" lang="en">“Marisol explained everything in Spanish and we never felt lost. Today we have our home in Yonkers.”</p>
+        <footer>Familia Rodríguez <span>Yonkers</span></footer>
+      </blockquote>
+      <blockquote style="--c:#F2B705">
+        <p class="tib" lang="bo">“ཁྱིམ་དང་པོ་ཉོ་བའི་ལས་རིམ་ཚང་མ་བོད་སྐད་ཐོག་གསལ་བཤད་གནང་སོང་། ཐུགས་རྗེ་ཆེ།”</p>
+        <p class="gloss" lang="en">“They explained the whole process of buying our first home in Tibetan. Thank you.”</p>
+        <footer>Pema &amp; Dawa <span>Woodside</span></footer>
+      </blockquote>
+      <blockquote style="--c:#0F6B5C">
+        <p lang="en">“They sold my mother's two-family in eleven days, over asking, and handled the co-op search for her new place too.”</p>
+        <footer>Anthony M. <span>Pelham Bay</span></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap contact-grid">
+    <div class="info">
+      <h2 data-i18n="c.title">Let's talk about your next home</h2>
+      <p class="intro" style="margin-bottom:0" data-i18n="c.lead">Request a free consultation and we'll reply by email within one business day, in the language you choose.</p>
+      <dl>
+        <div><dt data-i18n="c.email">Email</dt><dd><a href="mailto:ty@annkey.com">ty@annkey.com</a></dd></div>
+        <div><dt data-i18n="c.office">Office</dt><dd>1840 Central Park Ave, Yonkers, NY 10710</dd></div>
+        <div><dt data-i18n="c.hours">Hours</dt><dd data-i18n="c.hours.v">Mon to Sat, 9 am to 8 pm. Sunday by appointment.</dd></div>
+      </dl>
+    </div>
+    <form class="card" id="form" novalidate>
+      <div class="row2">
+        <label><span data-i18n="f.name">Your name</span><input name="name" autocomplete="name" required></label>
+        <label><span data-i18n="f.email">Your email</span><input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="row2">
+        <label><span data-i18n="f.lang">Preferred language</span>
+          <select name="lang">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="bo" lang="bo">བོད་སྐད། (Tibetan)</option>
+          </select>
+        </label>
+        <label><span data-i18n="f.want">I want to</span>
+          <select name="want">
+            <option data-i18n="f.o.buy" value="buy">Buy a home</option>
+            <option data-i18n="f.o.sell" value="sell">Sell a home</option>
+            <option data-i18n="f.o.rent" value="rent">Rent an apartment</option>
+            <option data-i18n="f.o.invest" value="invest">Buy an investment property</option>
+          </select>
+        </label>
+      </div>
+      <label><span data-i18n="f.area">Neighborhood you're interested in</span><input name="area" data-i18n-ph="f.area.ph" placeholder="e.g. Jackson Heights"></label>
+      <label><span data-i18n="f.msg">Message (optional)</span><textarea name="msg"></textarea></label>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn primary" type="submit" data-i18n="f.send">Request consultation</button>
+      <p class="demo" data-i18n="f.demo">Sending opens your email app with your request addressed to ty@annkey.com.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>
+      <p><strong>Three Bridges Realty LLC</strong></p>
+      <p data-i18n="ft.lic">Licensed Real Estate Broker, New York State Department of State. Serving Yonkers, the Bronx and Queens.</p>
+      <p class="eho">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 11 12 3l10 8" fill="none" stroke="currentColor" stroke-width="2"/><rect x="6" y="11" width="12" height="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 15h6M9 18h6" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-i18n="ft.eho">Equal Housing Opportunity</span>
+      </p>
+    </div>
+    <ul>
+      <li><a href="#" data-i18n="ft.fair">NYS Fair Housing Notice</a></li>
+      <li><a href="#" data-i18n="ft.sop">Standard Operating Procedures</a></li>
+      <li><a href="#" data-i18n="ft.privacy">Privacy policy</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ---------- Bunting: five-color strings that echo both prayer flags and papel picado ----------
+  const bunt = document.getElementById('bunting');
+  const colors = ['#2B59C3', '#F4F4F2', '#C8102E', '#1F7A4D', '#F2B705'];
+  let s = '<path d="M0 6 Q300 26 600 8 T1200 6" fill="none" stroke="var(--muted)" stroke-width="1.2"/>';
+  const n = 40;
+  for (let i = 0; i < n; i++) {
+    const x = 10 + i * (1180 / (n - 1));
+    const t = x / 1200;
+    // approximate curve height
+    const y = t < .5 ? 6 + Math.sin(t * 2 * Math.PI) * 11 + 2 : 8 - Math.sin((t - .5) * 2 * Math.PI) * 4;
+    const c = colors[i % 5];
+    s += `<rect x="${(x - 9).toFixed(1)}" y="${y.toFixed(1)}" width="18" height="22" fill="${c}" stroke="rgba(0,0,0,.12)" stroke-width=".6"/>`;
+  }
+  bunt.innerHTML = s;
+
+  // ---------- Translations ----------
+  const T = {
+    es: {
+      "skip": "Saltar al contenido", "menu": "Menú",
+      "nav.areas": "Zonas", "nav.services": "Servicios", "nav.process": "Cómo funciona", "nav.team": "Nosotros", "nav.contact": "Contacto",
+      "hero.note": "Hablamos tu idioma, desde Yonkers hasta Queens.",
+      "hero.lead": "Three Bridges Realty ayuda a las familias a comprar, vender y alquilar viviendas en Yonkers, el Bronx y Queens, en inglés, español y tibetano.",
+      "hero.cta": "Agenda una consulta gratis",
+      "areas.title": "Dónde trabajamos",
+      "areas.lead": "Nosotros también vivimos aquí. Sabemos qué cuadras se inundan, qué juntas de co-op son estrictas y dónde están los mejores momos y empanadas.",
+      "areas.yonkers": "Casas bifamiliares, co-ops cerca del Metro-North y más espacio por tu dinero, justo al norte de la ciudad.",
+      "areas.bronx": "Casas adosadas, condominios y apartamentos de renta estabilizada, desde Kingsbridge hasta Pelham Bay.",
+      "areas.queens": "Co-ops, casas multifamiliares y algunas de las calles más diversas del mundo.",
+      "svc.title": "Cómo podemos ayudarte",
+      "svc.lead": "Ya sea tu primer apartamento o tu tercer edificio, nos encargamos de los detalles y te explicamos cada paso.",
+      "svc.buy.t": "Comprar tu primera casa", "svc.buy.d": "Te guiamos en la preaprobación de la hipoteca y la ayuda para el pago inicial, como SONYMA y préstamos FHA, y te explicamos cada documento.",
+      "svc.sell.t": "Vender tu casa", "svc.sell.d": "Un precio basado en ventas reales de tu cuadra, fotos profesionales y un anuncio compartido con compradores en tres idiomas.",
+      "svc.rent.t": "Alquilar", "svc.rent.d": "Apartamentos para inquilinos e inquilinos calificados para propietarios, con contratos, depósitos y tarifas explicados con claridad.",
+      "svc.multi.t": "Multifamiliares e inversión", "svc.multi.d": "Casas de dos y tres familias donde la renta de las otras unidades ayuda a pagar la hipoteca.",
+      "svc.coop.t": "Paquetes para juntas de co-op", "svc.coop.d": "Te ayudamos a reunir los documentos financieros y cartas de referencia que piden las juntas, y te preparamos para la entrevista.",
+      "svc.eve.t": "Visitas de noche y fines de semana", "svc.eve.d": "Nos ajustamos a tus turnos, incluidos sábados, domingos y noches entre semana después de las 7 pm.",
+      "svc.lang.t": "Cada paso en tu idioma", "svc.lang.d": "Contratos, inspecciones, llamadas con el banco y cierres, explicados en inglés, español o tibetano para que nada se pierda en la traducción.",
+      "proc.title": "Cómo funciona", "proc.lead": "Comprar una casa en Nueva York toma de 60 a 90 días. Así es el proceso con nosotros.",
+      "proc.1.t": "Habla con nosotros", "proc.1.d": "Una conversación gratis y sin presión sobre tu presupuesto, tu familia y el vecindario.",
+      "proc.2.t": "Prepara tus finanzas", "proc.2.d": "Te conectamos con prestamistas de confianza y programas de asistencia.",
+      "proc.3.t": "Encuentra la casa ideal", "proc.3.d": "Visitamos casas contigo y negociamos el mejor precio.",
+      "proc.4.t": "Cierra con confianza", "proc.4.d": "Te acompañamos en la inspección, el contrato y el día del cierre.",
+      "team.title": "Tus vecinos en bienes raíces", "team.lead": "Una agencia pequeña y familiar fundada en 2012. Trabajarás directamente con nosotros, no con un centro de llamadas.",
+      "team.mv.role": "Fundadora y corredora de bienes raíces con licencia",
+      "team.mv.bio": "Criada en Parkchester por padres dominicanos, Marisol ha ayudado a más de 400 familias a comprar y vender casas en el Bronx y Westchester.",
+      "team.tn.role": "Agente de bienes raíces con licencia",
+      "team.tn.bio": "Nacido en Dharamsala y residente de Jackson Heights desde 2009, Tenzin se especializa en co-ops de Queens y compradores primerizos.",
+      "q.title": "Lo que dicen las familias", "q.lead": "Opiniones de clientes, en el idioma en que las escribieron.",
+      "c.title": "Hablemos de tu próximo hogar", "c.lead": "Solicita una consulta gratis y te responderemos por correo en un día hábil, en el idioma que prefieras.",
+      "c.email": "Correo", "c.office": "Oficina", "c.hours": "Horario", "c.hours.v": "Lunes a sábado, 9 am a 8 pm. Domingo con cita.",
+      "f.name": "Tu nombre", "f.email": "Tu correo electrónico", "f.lang": "Idioma preferido", "f.want": "Quiero",
+      "f.o.buy": "Comprar una casa", "f.o.sell": "Vender una casa", "f.o.rent": "Alquilar un apartamento", "f.o.invest": "Comprar una propiedad de inversión",
+      "f.area": "Vecindario que te interesa", "f.area.ph": "p. ej. Corona", "f.msg": "Mensaje (opcional)", "f.send": "Solicitar consulta",
+      "f.demo": "Al enviar se abrirá tu aplicación de correo con tu solicitud dirigida a ty@annkey.com.",
+      "f.err": "Escribe tu nombre y un correo electrónico válido para que podamos responderte.",
+      "f.ok": "¡Gracias, {name}! Se abrió tu aplicación de correo. Envía el mensaje y te responderemos en un día hábil.",
+      "ft.lic": "Corredor de bienes raíces con licencia, Departamento de Estado de Nueva York. Servimos a Yonkers, el Bronx y Queens.",
+      "ft.eho": "Igualdad de oportunidades en la vivienda", "ft.fair": "Aviso de vivienda justa del Estado de NY", "ft.sop": "Procedimientos operativos estándar", "ft.privacy": "Política de privacidad"
+    },
+    bo: {
+      "skip": "ནང་དོན་ལ་མཆོང་།", "menu": "དཀར་ཆག",
+      "nav.areas": "ས་ཁུལ།", "nav.services": "ཞབས་ཞུ།", "nav.process": "ལས་རིམ།", "nav.team": "ང་ཚོའི་སྐོར།", "nav.contact": "འབྲེལ་བ།",
+      "hero.note": "Yonkers ནས་ Queens བར་ཁྱེད་ཀྱི་སྐད་ཡིག་ཐོག་ཁ་བརྡ་བྱེད་ཐུབ།",
+      "hero.lead": "Three Bridges Realty ཡིས་ Yonkers དང་ Bronx། Queens བཅས་སུ་ཁྱིམ་ཉོ་བ་དང་འཚོང་བ། གླ་བ་བཅས་ལ་ཁྱིམ་ཚང་རྣམས་ལ་རོགས་རམ་བྱེད། དབྱིན་སྐད་དང་། ཧི་སི་པན་སྐད། བོད་སྐད་བཅས་ཐོག",
+      "hero.cta": "རིན་མེད་གྲོས་བསྡུར་དུས་འཁེལ་གནང་།",
+      "areas.title": "ང་ཚོའི་ལས་ཀའི་ས་ཁུལ།",
+      "areas.lead": "ང་ཚོ་ཡང་འདི་རང་དུ་སྡོད་ཀྱི་ཡོད། ལམ་ཁ་གང་དུ་ཆུ་ལོག་ཡོང་བ་དང་། co-op ཚོགས་པ་གང་ཞིག་དམ་པོ་ཡིན་པ། མོག་མོག་ཞིམ་པོ་གང་དུ་ཡོད་པ་བཅས་ཤེས་ཀྱི་ཡོད།",
+      "areas.yonkers": "ཁྱིམ་ཚང་གཉིས་ཀྱི་ཁང་པ་དང་། Metro-North ཉེ་འཁོར་གྱི་ co-op། གྲོང་ཁྱེར་གྱི་བྱང་ཕྱོགས་སུ་རིན་གོང་དང་བསྟུན་ན་ས་ཁོངས་ཆེ་བ།",
+      "areas.bronx": "Kingsbridge ནས་ Pelham Bay བར་གྱི་ཁང་པ་དང་། condo། ཁང་གླ་བརྟན་པོའི་ཁང་མིག་བཅས།",
+      "areas.queens": "Co-op དང་ཁྱིམ་ཚང་མང་པོའི་ཁང་པ། འཛམ་གླིང་ནང་མི་རིགས་སྣ་ཚོགས་མང་ཤོས་ཡོད་སའི་ལམ་ཁ།",
+      "svc.title": "ང་ཚོས་རོགས་རམ་ཇི་ལྟར་བྱེད་ཐུབ།",
+      "svc.lead": "ཁང་མིག་དང་པོ་ཡིན་ནའང་ཁང་པ་གསུམ་པ་ཡིན་ནའང་། ང་ཚོས་ཞིབ་ཕྲ་ཚང་མ་བྱས་ནས་གོ་རིམ་རེ་རེ་གསལ་བཤད་བྱེད།",
+      "svc.buy.t": "ཁྱིམ་དང་པོ་ཉོ་བ།", "svc.buy.d": "བུ་ལོན་སྔོན་ཆོག་དང་། SONYMA དང་ FHA ལྟ་བུའི་སྔ་དངུལ་རོགས་རམ་བཅས་ལ་ལམ་སྟོན་བྱས་ནས། ཡིག་ཆ་རེ་རེ་གསལ་བཤད་བྱེད།",
+      "svc.sell.t": "ཁྱིམ་འཚོང་བ།", "svc.sell.d": "ཁྱེད་ཀྱི་ས་ཁུལ་གྱི་འཚོང་ཚད་དངོས་ལ་གཞིགས་པའི་རིན་གོང་། ཆེད་ལས་པར་རིས། སྐད་ཡིག་གསུམ་ཐོག་ཉོ་མཁན་ལ་ཁྱབ་བསྒྲགས།",
+      "svc.rent.t": "གླ་བ།", "svc.rent.d": "གླ་མཁན་ལ་ཁང་མིག་དང་། ཁང་བདག་ལ་འོས་བབ་ཅན་གྱི་གླ་མཁན། གན་རྒྱ་དང་འགན་ལེན་དངུལ། གླ་ཆ་བཅས་གསལ་པོར་བཤད།",
+      "svc.multi.t": "ཁྱིམ་ཚང་མང་པོའི་ཁང་པ་དང་མ་དངུལ།", "svc.multi.d": "ཁྱིམ་ཚང་གཉིས་དང་གསུམ་གྱི་ཁང་པ། ཁང་མིག་གཞན་གྱི་གླ་ཆས་བུ་ལོན་སྤྲོད་པར་རོགས་བྱེད།",
+      "svc.coop.t": "Co-op ཚོགས་པའི་ཡིག་ཆ།", "svc.coop.d": "Co-op ཚོགས་པས་དགོས་པའི་དཔལ་འབྱོར་ཡིག་ཆ་དང་ངོ་སྤྲོད་ཡི་གེ་བསྡུ་བར་རོགས་བྱས་ནས། འདྲི་རྩད་ཀྱི་གྲ་སྒྲིག་བྱེད།",
+      "svc.eve.t": "དགོང་མོ་དང་གཟའ་མཇུག་ལ་ཁང་པ་ལྟ་བ།", "svc.eve.d": "ཁྱེད་ཀྱི་ལས་ཀའི་དུས་ཚོད་དང་བསྟུན་ནས། གཟའ་སྤེན་པ། གཟའ་ཉི་མ། དགོང་མོ་ཆུ་ཚོད་ ༧ རྗེས་བཅས།",
+      "svc.lang.t": "གོ་རིམ་ཚང་མ་ཁྱེད་ཀྱི་སྐད་ཡིག་ཐོག", "svc.lang.d": "གན་རྒྱ་དང་། ཞིབ་བཤེར། བུ་ལོན་གྱི་ཁ་པར། ཉོ་ཚོང་མཇུག་སྒྲིལ་བཅས། དབྱིན་སྐད་དང་། ཧི་སི་པན་སྐད། བོད་སྐད་ཐོག་གསལ་བཤད་བྱེད།",
+      "proc.title": "ལས་རིམ།", "proc.lead": "New York ནང་ཁྱིམ་ཉོ་བར་ཉིན་ ༦༠ ནས་ ༩༠ བར་འགོར། ང་ཚོ་མཉམ་དུ་ལས་རིམ་འདི་ལྟར་ཡིན།",
+      "proc.1.t": "ང་ཚོ་དང་གྲོས་བསྡུར།", "proc.1.d": "ཁྱེད་ཀྱི་འཆར་རྩིས་དང་། ཁྱིམ་ཚང་། ས་ཁུལ་སྐོར་རིན་མེད་གྲོས་བསྡུར།",
+      "proc.2.t": "དཔལ་འབྱོར་གྲ་སྒྲིག", "proc.2.d": "ཡིད་ཆེས་རུང་བའི་བུ་ལོན་གཏོང་མཁན་དང་རོགས་རམ་ལས་གཞི་དང་འབྲེལ་བ་སྦྲེལ།",
+      "proc.3.t": "འོས་འཚམ་གྱི་ཁྱིམ་འཚོལ་བ།", "proc.3.d": "ཁྱེད་དང་མཉམ་དུ་ཁང་པ་ལྟ་བར་འགྲོ་ནས་རིན་གོང་ལེགས་ཤོས་གྲོས་མོལ་བྱེད།",
+      "proc.4.t": "ཡིད་ཆེས་ཐོག་མཇུག་སྒྲིལ།", "proc.4.d": "ཞིབ་བཤེར་དང་གན་རྒྱ། མཇུག་སྒྲིལ་ཉིན་བར་ཁྱེད་དང་མཉམ་དུ་ཡོད།",
+      "team.title": "ཁྱེད་ཀྱི་ཁྱིམ་མཚེས།", "team.lead": "༢༠༡༢ ལོར་བཙུགས་པའི་ཁྱིམ་ཚང་གི་ཚོང་ཁང་ཆུང་ཆུང་ཞིག ཁྱེད་ང་ཚོ་དང་ཐད་ཀར་ལས་ཀ་བྱེད་ཐུབ།",
+      "team.mv.role": "འཛུགས་མཁན་དང་ཆོག་མཆན་ཡོད་པའི་ཁང་ས་ཚོང་པ།",
+      "team.mv.bio": "Parkchester དུ་ Dominican ཕ་མའི་ཁྲོད་འཚར་ལོངས་བྱུང་བའི་ Marisol གྱིས་ Bronx དང་ Westchester དུ་ཁྱིམ་ཚང་ ༤༠༠ ལྷག་ལ་ཁྱིམ་ཉོ་ཚོང་རོགས་རམ་བྱས་ཡོད།",
+      "team.tn.role": "ཆོག་མཆན་ཡོད་པའི་ཁང་ས་ཚོང་ལས་པ།",
+      "team.tn.bio": "དྷ་རམ་ས་ལར་སྐྱེས་ཤིང་ ༢༠༠༩ ལོ་ནས་ Jackson Heights དུ་སྡོད་པའི་བསྟན་འཛིན་གྱིས་ Queens ཀྱི་ co-op དང་ཁྱིམ་དང་པོ་ཉོ་མཁན་ལ་ཆེད་ལས་བྱེད།",
+      "q.title": "ཁྱིམ་ཚང་རྣམས་ཀྱི་བསམ་ཚུལ།", "q.lead": "མགྲོན་པོ་རྣམས་ཀྱིས་རང་སྐད་ཐོག་བྲིས་པའི་བསམ་ཚུལ།",
+      "c.title": "ཁྱེད་ཀྱི་ཁྱིམ་གསར་པའི་སྐོར་གླེང་མོལ་བྱེད།", "c.lead": "རིན་མེད་གྲོས་བསྡུར་ཞུ་ན། ལས་ཉིན་གཅིག་ནང་ཁྱེད་ཀྱིས་འདེམས་པའི་སྐད་ཐོག་གློག་འཕྲིན་ནང་ལན་འདེབས་བྱེད།",
+      "c.email": "གློག་འཕྲིན།", "c.office": "ལས་ཁང་།", "c.hours": "ལས་ཀའི་དུས་ཚོད།", "c.hours.v": "གཟའ་ཟླ་བ་ནས་སྤེན་པ་བར། སྔ་དྲོ་ ༩ ནས་དགོང་མོ་ ༨ བར། གཟའ་ཉི་མ་དུས་འཁེལ་ཐོག",
+      "f.name": "ཁྱེད་ཀྱི་མིང་།", "f.email": "ཁྱེད་ཀྱི་གློག་འཕྲིན་ཁ་བྱང་།", "f.lang": "འདེམས་པའི་སྐད་ཡིག", "f.want": "ང་ལ་དགོས་པ།",
+      "f.o.buy": "ཁྱིམ་ཉོ་བ།", "f.o.sell": "ཁྱིམ་འཚོང་བ།", "f.o.rent": "ཁང་མིག་གླ་བ།", "f.o.invest": "མ་དངུལ་གྱི་ཁང་པ་ཉོ་བ།",
+      "f.area": "ཁྱེད་དགའ་བའི་ས་ཁུལ།", "f.area.ph": "དཔེར་ན། Jackson Heights", "f.msg": "འཕྲིན། (འདེམས་ཆོག)", "f.send": "གྲོས་བསྡུར་ཞུ།",
+      "f.demo": "གཏོང་བ་མནན་ན་ཁྱེད་ཀྱི་གློག་འཕྲིན་ཉེར་སྤྱོད་ཁ་ཕྱེ་ནས་ ty@annkey.com ལ་ཞུ་འཕྲིན་གཏོང་།",
+      "f.err": "ང་ཚོས་ལན་འདེབས་ཆེད་མིང་དང་གློག་འཕྲིན་ཁ་བྱང་འབྲི་རོགས།",
+      "f.ok": "ཐུགས་རྗེ་ཆེ། {name} ལགས། གློག་འཕྲིན་ཉེར་སྤྱོད་ཁ་ཕྱེ་ཟིན། འཕྲིན་བཏང་ན་ལས་ཉ���ན་གཅིག་ནང་ལན་འདེབས་བྱེད།",
+      "ft.lic": "New York མངའ་སྡེའི་ཆོག་མཆན་ཡོད་པའི་ཁང་ས་ཚོང་པ། Yonkers དང་ Bronx། Queens བཅས་ལ་ཞབས་ཞུ།",
+      "ft.eho": "ཁང་པའི་གོ་སྐབས་འདྲ་མཉམ།", "ft.fair": "NY ཁང་པའི་དྲང་བདེན་བརྡ་ཐོ།", "ft.sop": "ལས་ཀའི་སྒྲིག་གཞི།", "ft.privacy": "སྒེར་གྱི་གསང་བའི་སྲིད་ཇུས།"
+    }
+  };
+  const EN = {
+    "f.err": "Enter your name and a valid email address so we can reply.",
+    "f.ok": "Thank you, {name}! Your email app should now be open. Press send and we'll reply within one business day."
+  };
+
+  // cache English originals
+  document.querySelectorAll('[data-i18n]').forEach(el => { EN[el.dataset.i18n] = el.textContent; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { EN[el.dataset.i18nPh] = el.placeholder; });
+
+  let current = 'en';
+  const t = key => (current !== 'en' && T[current][key]) || EN[key] || key;
+
+  function setLang(code) {
+    current = T[code] || code === 'en' ? code : 'en';
+    document.documentElement.lang = current;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t(el.dataset.i18n);
+      if (current === 'bo') el.setAttribute('lang', 'bo'); else el.removeAttribute('lang');
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === current));
+    const sel = document.querySelector('select[name="lang"]');
+    if (sel) sel.value = current;
+    try { localStorage.setItem('tbr-lang', current); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  let saved = null;
+  try { saved = localStorage.getItem('tbr-lang'); } catch (e) {}
+  if (!saved) {
+    const nav = (navigator.language || '').slice(0, 2);
+    if (nav === 'es' || nav === 'bo') saved = nav;
+  }
+  if (saved && saved !== 'en') setLang(saved);
+
+  // ---------- Rotating welcome in three languages ----------
+  const greetings = [
+    { text: 'Welcome home.', lang: 'en' },
+    { text: 'Bienvenidos a casa.', lang: 'es' },
+    { text: 'བཀྲ་ཤིས་བདེ་ལེགས། ཁྱིམ་ལ་ཕེབས།', lang: 'bo' }
+  ];
+  const g = document.getElementById('greet');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let gi = 0;
+  setInterval(() => {
+    gi = (gi + 1) % greetings.length;
+    const next = greetings[gi];
+    if (reduce) { g.textContent = next.text; g.lang = next.lang; return; }
+    g.classList.add('out');
+    setTimeout(() => { g.textContent = next.text; g.lang = next.lang; g.classList.remove('out'); }, 450);
+  }, 3200);
+
+  // ---------- Mobile menu ----------
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // ---------- Contact form (demo only) ----------
+  const form = document.getElementById('form');
+  const err = document.getElementById('err');
+  const TO = 'ty@annkey.com';
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      err.textContent = t('f.err');
+      (!name ? form.name : form.email).focus();
+      return;
+    }
+    err.textContent = '';
+    const langLabel = form.lang.options[form.lang.selectedIndex].text;
+    const wantLabel = form.want.options[form.want.selectedIndex].text;
+    const subject = 'Consultation request: ' + name;
+    const body = [
+      'Name: ' + name,
+      'Email: ' + email,
+      'Preferred language: ' + langLabel,
+      'Wants to: ' + wantLabel,
+      'Neighborhood: ' + (form.area.value.trim() || '-'),
+      '',
+      form.msg.value.trim()
+    ].join('\n');
+    const href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    const ok = document.createElement('div');
+    ok.className = 'ok';
+    ok.setAttribute('role', 'status');
+    const p = document.createElement('p');
+    p.style.margin = '0 0 .8rem';
+    p.textContent = t('f.ok').replace('{name}', name);
+    const a = document.createElement('a');
+    a.className = 'btn primary';
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'Email ' + TO;
+    ok.append(p, a);
+    form.replaceChildren(ok);
+
+    try { const w = window.open(href, '_blank'); if (!w) window.location.href = href; } catch (x) {}
+  });
+})();
+</script>
+</body>
+</html>
